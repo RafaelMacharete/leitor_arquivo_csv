@@ -33,21 +33,24 @@ with open('ESP8266_Receiver - Sheet1.csv', newline='') as arquivo_csv:
 
         # Verifica os níveis críticos de cada esteira e adiciona ao corpo do e-mail
         if int(linha_arquivo_csv[2]) < 5:  # esteira 0
-            body.append(f"A esteira 0 no dia {linha_arquivo_csv[0]} no tempo: {linha_arquivo_csv[1]}\nestá abaixo do nível crítico!!\n")
+            body.append(f"A esteira 0 no dia {linha_arquivo_csv[0]} no tempo: {linha_arquivo_csv[1]}\nestava abaixo do nível crítico!!\n")
+            print(f"{Fore.RED}A esteira 0 no dia {linha_arquivo_csv[0]} no tempo: {linha_arquivo_csv[1]}\nestava abaixo do nível crítico!!\n")
 
             with open(relatorio_csv, 'a', newline='', encoding='utf-8') as arquivo_relatorio_csv:
                 spamwriter = csv.writer(arquivo_relatorio_csv)
                 spamwriter.writerow([linha_arquivo_csv[0], linha_arquivo_csv[1], linha_arquivo_csv[2], '-', '-'])
 
         if int(linha_arquivo_csv[3]) < 250:  # esteira 1
-            body.append(f"A esteira 1 no dia {linha_arquivo_csv[0]} no tempo: {linha_arquivo_csv[1]}\nestá abaixo do nível crítico!!\n")
+            body.append(f"A esteira 1 no dia {linha_arquivo_csv[0]} no tempo: {linha_arquivo_csv[1]}\nestava abaixo do nível crítico!!\n")
+            print(f"{Fore.BLUE}A esteira 1 no dia {linha_arquivo_csv[0]} no tempo: {linha_arquivo_csv[1]}\nestava abaixo do nível crítico!!\n")
 
             with open(relatorio_csv, 'a', newline='', encoding='utf-8') as arquivo_relatorio_csv:
                 spamwriter = csv.writer(arquivo_relatorio_csv)
                 spamwriter.writerow([linha_arquivo_csv[0], linha_arquivo_csv[1], '-', linha_arquivo_csv[3], '-'])
 
         if int(linha_arquivo_csv[4]) < 25000:  # esteira 2
-            body.append(f"A esteira 2 no dia {linha_arquivo_csv[0]} no tempo: {linha_arquivo_csv[1]}\nestá abaixo do nível crítico!!\n")
+            body.append(f"A esteira 2 no dia {linha_arquivo_csv[0]} no tempo: {linha_arquivo_csv[1]}\nestava abaixo do nível crítico!!\n")
+            print(f"{Fore.LIGHTYELLOW_EX}A esteira 2 no dia {linha_arquivo_csv[0]} no tempo: {linha_arquivo_csv[1]}\nestava abaixo do nível crítico!!\n")
 
             with open(relatorio_csv, 'a', newline='', encoding='utf-8') as arquivo_relatorio_csv:
                 spamwriter = csv.writer(arquivo_relatorio_csv)
